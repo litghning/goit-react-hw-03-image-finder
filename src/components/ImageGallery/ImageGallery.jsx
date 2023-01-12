@@ -1,7 +1,6 @@
 import React, {Component} from "react";
  import ImageGalleryItem from '../ImageGalleryItem';
  import Loader from '../Loader';
- import LoadMore from 'components/LoadMore';
  import { ImageGalleryList } from './ImageGallery.styled';
  import Modal from '../Modal';
 
@@ -28,7 +27,7 @@ class ImageGallery extends Component {
       };
 
       render() {
-        const { images, onLoadMore } = this.props;
+        const { images} = this.props;
         const { isLoading, modalImg, tag, showModal } = this.state;
     
         return (
@@ -44,7 +43,7 @@ class ImageGallery extends Component {
                 />
               ))}
             </ImageGalleryList>
-            {images.length > 11 && <LoadMore onClick={onLoadMore} />}
+            
             {showModal && (
               <Modal onClose={this.toggleModal}>
                 <img src={modalImg} alt={tag} />
